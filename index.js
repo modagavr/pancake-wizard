@@ -1,6 +1,6 @@
 // Global Config
 const BNBPP_ADDRESS = "0x516ffd7d1e0ca40b1879935b2de87cb20fc1124b";
-const AMOUNT_TO_BET = "0.1"; // in BNB
+const AMOUNT_TO_BET = process.env.BET_AMOUNT || "0.1"; // in BNB
 
 import dotenv from "dotenv";
 
@@ -23,6 +23,8 @@ const bnbppContract = new ethers.Contract(BNBPP_ADDRESS, BNBPP_ABI, signer);
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+console.log("Starting. Amount to bet:", AMOUNT_TO_BET);
 
 bnbppContract.on("StartRound", async (epoch) => {
   console.log("Started Epoch", +epoch);
@@ -73,6 +75,30 @@ bnbppContract.on("StartRound", async (epoch) => {
       console.log("Bull Betting Tx Success");
     } catch {
       console.log("Bull Betting Tx Error");
+    }
+  }
+
+  for (let i = 1; i <= 5; i++) {
+    const prevEpoch = parseInt(epoch) - i;
+    const [claimable, refundable, {claimed, amount}] = await Promise.all([
+      bnbppContract.claimable(prevEpoch, signer.address),
+      bnbppContract.refundable(prevEpoch, signer.address),
+      bnbppContract.ledger(prevEpoch, signer.address)
+    ]);
+
+    if (amount.toString() === '0') {
+      continue;
+    }
+
+    if ((claimable || refundable) && !claimed) {
+      const tx = await bnbppContract.claim(prevEpoch);
+      console.log("Claim Tx Started");
+      try {
+        await tx.wait();
+        console.log("Claim Tx Success");
+      } catch {
+        console.log("Claim Tx Error");
+      }
     }
   }
 });
