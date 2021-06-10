@@ -37,8 +37,10 @@ bnbppContract.on("StartRound", async (epoch) => {
   console.log("Bull Amount", formatEther(bullAmount), "BNB");
   console.log("Bear Amount", formatEther(bearAmount), "BNB");
 
-  // Betting on Bear if BullAmount > BearAmount
-  const bearBet = +bullAmount > +bearAmount;
+  // Betting on Bear if BullAmount > BearAmount but Coefficient is Less Than 6
+  const bearBet =
+    (+bullAmount > +bearAmount && +bullAmount / +bearAmount < 5) ||
+    (+bullAmount < +bearAmount && +bearAmount / +bullAmount > 5);
 
   console.log("Betting on", bearBet ? "Bear" : "Bull");
 
