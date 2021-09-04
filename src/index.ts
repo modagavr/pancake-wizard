@@ -92,7 +92,7 @@ predictionContract.on("StartRound", async (epoch: BigNumber) => {
     console.log(green("\nBetting on Bull Bet."));
   }
 
-  console.log("\bBetting is Started.");
+  console.log("\nBetting is Started.");
 
   if (bearBet) {
     try {
