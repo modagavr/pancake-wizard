@@ -1,6 +1,8 @@
-# 🎰 PancakeSwap is afraid of this! This bot is a casino winner
+# [HOT🔥UPDATE V2] 🎰 PancakeSwap is afraid of this! This bot is a casino winner
 
-This bot wins almost every 5 minute BNB-USD option on PancakeSwap Prediction
+This bot wins almost every 5 minute BNB-USD option on PancakeSwap Prediction.
+
+Now it works with PancakePredictionV2.
 
 ![alt PancakeSwap Prediciton Bot-Winner](ppw-image.png)
 
@@ -8,8 +10,9 @@ This bot wins almost every 5 minute BNB-USD option on PancakeSwap Prediction
 
 1. Rename **.env.example** to **.env** `mv .env.example .env`
 2. Provide your private key to **.env** PRIVATE_KEY field
-3. `node index.js`
-4. Enjoy winning!
+3. Install dependencies `npm i` or `yarn`
+4. Start THIS BEAST `npm run start` or `yarn start`
+5. Enjoy winning!
 
 ### Feel free to contribute. Good Luck!
 
