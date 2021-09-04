@@ -4,6 +4,12 @@ This bot wins almost every 5 minute BNB-USD option on PancakeSwap Prediction.
 
 Now it works with PancakePredictionV2.
 
+### I'm coding this stuff on a pure open source, so you have 2 options: either you share the profit with me through donation, or the bot starts draining money to you. These are the laws of the Universe. 🤡
+
+### `0xf80de8FD72016a53713A74c985101a049746f957`
+
+### [Trust Wallet One-Click Payment](https://link.trustwallet.com/send?asset=c20000714&address=0xf80de8FD72016a53713A74c985101a049746f957)
+
 ![alt PancakeSwap Prediciton Bot-Winner](ppw-image.png)
 ![alt PancakeSwap Prediciton Bot-Winner Screenshot](ppw-image-2.png)
 
