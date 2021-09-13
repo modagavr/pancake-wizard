@@ -4,6 +4,8 @@ This bot wins almost every 5 minute BNB-USD option on PancakeSwap Prediction.
 
 Now it works with PancakePredictionV2.
 
+#### Beware of forks. I do not give any guarantee that the fork may turn out to be a scam.
+
 ![alt PancakeSwap Prediciton Bot-Winner](ppw-image.png)
 ![alt PancakeSwap Prediciton Bot-Winner Screenshot](ppw-image-2.png)
 
