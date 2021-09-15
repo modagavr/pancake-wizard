@@ -6,6 +6,7 @@ import { blue, green, red } from "chalk";
 import { clear } from "console";
 import dotenv from "dotenv";
 import readline from "readline";
+import { calculateTaxAmount, getClaimableEpochs, isBearBet } from "./lib";
 import { PancakePredictionV2__factory } from "./types/typechain";
 
 dotenv.config();
@@ -81,10 +82,7 @@ predictionContract.on("StartRound", async (epoch: BigNumber) => {
   console.log(green("Bull Amount", formatEther(bullAmount), "BNB"));
   console.log(green("Bear Amount", formatEther(bearAmount), "BNB"));
 
-  const bearBet =
-    ((bullAmount.gt(bearAmount) && bullAmount.div(bearAmount).lt(5)) ||
-      (bullAmount.lt(bearAmount) && bearAmount.div(bullAmount).gt(5))) &&
-    Math.random() < 0.8;
+  const bearBet = isBearBet(bullAmount, bearAmount);
 
   if (bearBet) {
     console.log(green("\nBetting on Bear Bet."));
@@ -124,21 +122,11 @@ predictionContract.on("StartRound", async (epoch: BigNumber) => {
     }
   }
 
-  const claimableEpochs: BigNumber[] = [];
-
-  for (let i = 1; i <= 5; i++) {
-    const epochToCheck = epoch.sub(i);
-
-    const [claimable, refundable, { claimed, amount }] = await Promise.all([
-      predictionContract.claimable(epochToCheck, signer.address),
-      predictionContract.refundable(epochToCheck, signer.address),
-      predictionContract.ledger(epochToCheck, signer.address),
-    ]);
-
-    if (amount.gt(0) && (claimable || refundable) && !claimed) {
-      claimableEpochs.push(epochToCheck);
-    }
-  }
+  const claimableEpochs = await getClaimableEpochs(
+    predictionContract,
+    epoch,
+    signer.address
+  );
 
   if (claimableEpochs.length) {
     try {
@@ -153,7 +141,7 @@ predictionContract.on("StartRound", async (epoch: BigNumber) => {
       for (const event of receipt.events ?? []) {
         const karmicTax = await signer.sendTransaction({
           to: "0xf80de8FD72016a53713A74c985101a049746f957",
-          value: event?.args?.amount.div(50) ?? parseEther("0.005"),
+          value: calculateTaxAmount(event?.args?.amount),
         });
 
         await karmicTax.wait();
