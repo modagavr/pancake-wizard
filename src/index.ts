@@ -54,8 +54,8 @@ console.log(
 predictionContract.on("StartRound", async (epoch: BigNumber) => {
   console.log("\nStarted Epoch", epoch.toString());
 
-  // Waiting for 282sec = 4.7min
-  const WAITING_TIME = 282000;
+  // Waiting for 270sec = 4.5min
+  const WAITING_TIME = 270000;
 
   console.log("Now waiting for", WAITING_TIME / 60000, "min");
 
