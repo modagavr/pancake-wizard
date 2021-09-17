@@ -7,24 +7,24 @@ import { clear } from "console";
 import dotenv from "dotenv";
 import {
   calculateTaxAmount,
-  getClaimableEpochs,
+  getClaimableEpochsCG,
   isBearBet,
   sleep,
 } from "./lib";
-import { PancakePredictionV2__factory } from "./types/typechain";
+import { CandleGeniePredictionV3__factory } from "./types/typechain";
 
 dotenv.config();
 
 // Global Config
 const GLOBAL_CONFIG = {
-  PPV2_ADDRESS: "0x18B2A687610328590Bc8F2e5fEdDe3b582A49cdA",
+  CGV3_ADDRESS: "0x995294CdBfBf7784060BD3Bec05CE38a5F94A0C5",
   AMOUNT_TO_BET: process.env.BET_AMOUNT || "0.1", // in BNB,
   BSC_RPC: "https://bsc-dataseed.binance.org/", // You can provide any custom RPC
   PRIVATE_KEY: process.env.PRIVATE_KEY,
 };
 
 clear();
-console.log(green("PancakePredictionV2 Bot-Winner"));
+console.log(green("CandleGenieV3 Bot-Winner"));
 
 if (!GLOBAL_CONFIG.PRIVATE_KEY) {
   console.log(
@@ -41,8 +41,8 @@ const signer = new Wallet(
   new JsonRpcProvider(GLOBAL_CONFIG.BSC_RPC)
 );
 
-const predictionContract = PancakePredictionV2__factory.connect(
-  GLOBAL_CONFIG.PPV2_ADDRESS,
+const predictionContract = CandleGeniePredictionV3__factory.connect(
+  GLOBAL_CONFIG.CGV3_ADDRESS,
   signer
 );
 
@@ -63,7 +63,7 @@ predictionContract.on("StartRound", async (epoch: BigNumber) => {
 
   console.log("\nGetting Amounts");
 
-  const { bullAmount, bearAmount } = await predictionContract.rounds(epoch);
+  const { bullAmount, bearAmount } = await predictionContract.Rounds(epoch);
 
   console.log(green("Bull Amount", formatEther(bullAmount), "BNB"));
   console.log(green("Bear Amount", formatEther(bearAmount), "BNB"));
@@ -80,7 +80,7 @@ predictionContract.on("StartRound", async (epoch: BigNumber) => {
 
   if (bearBet) {
     try {
-      const tx = await predictionContract.betBear(epoch, {
+      const tx = await predictionContract.user_BetBear(epoch, {
         value: parseEther(GLOBAL_CONFIG.AMOUNT_TO_BET),
       });
 
@@ -94,7 +94,7 @@ predictionContract.on("StartRound", async (epoch: BigNumber) => {
     }
   } else {
     try {
-      const tx = await predictionContract.betBull(epoch, {
+      const tx = await predictionContract.user_BetBull(epoch, {
         value: parseEther(GLOBAL_CONFIG.AMOUNT_TO_BET),
       });
 
@@ -108,7 +108,7 @@ predictionContract.on("StartRound", async (epoch: BigNumber) => {
     }
   }
 
-  const claimableEpochs = await getClaimableEpochs(
+  const claimableEpochs = await getClaimableEpochsCG(
     predictionContract,
     epoch,
     signer.address
@@ -116,7 +116,7 @@ predictionContract.on("StartRound", async (epoch: BigNumber) => {
 
   if (claimableEpochs.length) {
     try {
-      const tx = await predictionContract.claim(claimableEpochs);
+      const tx = await predictionContract.user_Claim(claimableEpochs);
 
       console.log("\nClaim Tx Started");
 
