@@ -38,6 +38,14 @@ export const getClaimableEpochs = async (
   return claimableEpochs;
 };
 
+export const reduceWaitingTimeByTwoBlocks = (waitingTime: number) => {
+  if (waitingTime <= 6000) {
+    return waitingTime;
+  }
+
+  return waitingTime - 6000;
+};
+
 export const getClaimableEpochsCG = async (
   predictionContract: CandleGeniePredictionV3,
   epoch: BigNumber,

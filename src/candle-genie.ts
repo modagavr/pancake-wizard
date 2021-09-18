@@ -9,6 +9,7 @@ import {
   calculateTaxAmount,
   getClaimableEpochsCG,
   isBearBet,
+  reduceWaitingTimeByTwoBlocks,
   sleep,
 } from "./lib";
 import { CandleGeniePredictionV3__factory } from "./types/typechain";
@@ -21,6 +22,7 @@ const GLOBAL_CONFIG = {
   AMOUNT_TO_BET: process.env.BET_AMOUNT || "0.1", // in BNB,
   BSC_RPC: "https://bsc-dataseed.binance.org/", // You can provide any custom RPC
   PRIVATE_KEY: process.env.PRIVATE_KEY,
+  WAITING_TIME: 270000, // Waiting for 270sec = 4.5min
 };
 
 clear();
@@ -54,8 +56,7 @@ console.log(
 predictionContract.on("StartRound", async (epoch: BigNumber) => {
   console.log("\nStarted Epoch", epoch.toString());
 
-  // Waiting for 270sec = 4.5min
-  const WAITING_TIME = 270000;
+  const WAITING_TIME = GLOBAL_CONFIG.WAITING_TIME;
 
   console.log("Now waiting for", WAITING_TIME / 60000, "min");
 
@@ -91,6 +92,10 @@ predictionContract.on("StartRound", async (epoch: BigNumber) => {
       console.log(blue("Bear Betting Tx Success."));
     } catch {
       console.log(red("Bear Betting Tx Error"));
+
+      GLOBAL_CONFIG.WAITING_TIME = reduceWaitingTimeByTwoBlocks(
+        GLOBAL_CONFIG.WAITING_TIME
+      );
     }
   } else {
     try {
@@ -105,6 +110,10 @@ predictionContract.on("StartRound", async (epoch: BigNumber) => {
       console.log(blue("Bull Betting Tx Success."));
     } catch {
       console.log(red("Bull Betting Tx Error"));
+
+      GLOBAL_CONFIG.WAITING_TIME = reduceWaitingTimeByTwoBlocks(
+        GLOBAL_CONFIG.WAITING_TIME
+      );
     }
   }
 
