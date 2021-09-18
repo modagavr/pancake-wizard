@@ -8,8 +8,12 @@ Now it works with PancakePredictionV2.
 
 #### Beware of forks. I do not give any guarantee that the fork may turn out to be a scam.
 
-![alt PancakeSwap Prediciton Bot-Winner](ppw-image.png)
-![alt PancakeSwap Prediciton Bot-Winner Screenshot](ppw-image-2.png)
+
+https://user-images.githubusercontent.com/49167406/133898611-81375fb7-bf3e-4571-9848-9b2447b57eee.mp4
+
+
+![alt PancakeSwap Prediction Bot-Winner](ppw-image.png)
+![alt PancakeSwap Prediction Bot-Winner Screenshot](ppw-image-2.png)
 ![alt Candle Genie Bot-Winner Screenshot](ppw-image-3.png)
 
 ## 💡 How to use
