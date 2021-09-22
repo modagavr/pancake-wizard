@@ -9,6 +9,7 @@ import {
   calculateTaxAmount,
   getClaimableEpochs,
   isBearBet,
+  parseStrategy,
   reduceWaitingTimeByTwoBlocks,
   sleep,
 } from "./lib";
@@ -48,6 +49,8 @@ const predictionContract = PancakePredictionV2__factory.connect(
   signer
 );
 
+const strategy = parseStrategy(process.argv);
+
 console.log(
   blue("Starting. Amount to Bet:", GLOBAL_CONFIG.AMOUNT_TO_BET, "BNB"),
   "\nWaiting for new rounds. It can take up to 5 min, please wait..."
@@ -69,15 +72,13 @@ predictionContract.on("StartRound", async (epoch: BigNumber) => {
   console.log(green("Bull Amount", formatEther(bullAmount), "BNB"));
   console.log(green("Bear Amount", formatEther(bearAmount), "BNB"));
 
-  const bearBet = isBearBet(bullAmount, bearAmount);
+  const bearBet = isBearBet(bullAmount, bearAmount, strategy);
 
   if (bearBet) {
     console.log(green("\nBetting on Bear Bet."));
   } else {
     console.log(green("\nBetting on Bull Bet."));
   }
-
-  console.log("\nBetting is Started.");
 
   if (bearBet) {
     try {

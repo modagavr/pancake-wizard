@@ -4,13 +4,13 @@ This bot wins almost every 5 minute BNB-USD option on PancakeSwap Prediction.
 
 Now it works with PancakePredictionV2.
 
+[Update 2.2]: Now supports Strategy Choice (start the bot with `--exp` flag)
+
 [Update 2.1]: Now supports [Candle Genie](https://candlegenie.io/prediction) BTC Price Option
 
 #### Beware of forks. I do not give any guarantee that the fork may turn out to be a scam.
 
-
 https://user-images.githubusercontent.com/49167406/133898611-81375fb7-bf3e-4571-9848-9b2447b57eee.mp4
-
 
 ![alt PancakeSwap Prediction Bot-Winner](ppw-image.png)
 ![alt PancakeSwap Prediction Bot-Winner Screenshot](ppw-image-2.png)
@@ -25,6 +25,8 @@ https://user-images.githubusercontent.com/49167406/133898611-81375fb7-bf3e-4571-
 5. Enjoy winning!
 
 P.S. If you want to play Candle Genie instead of Pancake, start THIS BEAST with `npm run cg` or `yarn cg`
+
+P.S.S. NEW🔥STRATEGY: Start THIS BEAST `npm run start --exp` or `yarn start --exp`, to use with Candle Genie – `npm run cg --exp` or `yarn cg --exp`
 
 ### Feel free to contribute. Good Luck!
 
