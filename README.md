@@ -26,7 +26,7 @@ https://user-images.githubusercontent.com/49167406/133898611-81375fb7-bf3e-4571-
 
 P.S. If you want to play Candle Genie instead of Pancake, start THIS BEAST with `npm run cg` or `yarn cg`
 
-P.S.S. NEW🔥STRATEGY: Start THIS BEAST `npm run start --exp` or `yarn start --exp`, to use with Candle Genie – `npm run cg --exp` or `yarn cg --exp`
+P.S.S. NEW🔥STRATEGY: Start THIS BEAST `npm run start -- --exp` or `yarn start --exp`, to use with Candle Genie – `npm run cg -- --exp` or `yarn cg --exp`
 
 ### Feel free to contribute. Good Luck!
 

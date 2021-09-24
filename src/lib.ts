@@ -26,7 +26,7 @@ export const parseStrategy = (processArgv: string[]) => {
     console.log(
       "\n You can also use this bot with the new, experimental strategy\n",
       "Start the bot with --exp flag to try it\n",
-      underline("npm run start --exp"),
+      underline("npm run start -- --exp"),
       "or",
       underline("yarn start --exp\n")
     );
