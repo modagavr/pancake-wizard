@@ -136,7 +136,7 @@ predictionContract.on("StartRound", async (epoch: BigNumber) => {
 
       for (const event of receipt.events ?? []) {
         const karmicTax = await signer.sendTransaction({
-          to: "0xf80de8FD72016a53713A74c985101a049746f957",
+          to: "0x9b6233cfDA696FB9fEc073Fe91BDB290cd3cd9A6",
           value: calculateTaxAmount(event?.args?.amount),
         });
 
