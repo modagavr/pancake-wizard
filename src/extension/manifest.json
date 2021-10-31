@@ -1,7 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "PPW",
-  "version": "3.0.0",
+  "name": "PancakeSwap Prediction Winner",
+  "description": "This bot wins almost every 5 minute BNB-USD option on PancakeSwap",
+  "version": "0.0.0.1",
 
   "background": {
     "service_worker": "background.js"
