@@ -1,13 +1,13 @@
 {
   "manifest_version": 3,
   "name": "PPW",
-  "version": "1.0.0",
+  "version": "3.0.0",
 
   "background": {
     "service_worker": "background.js"
   },
 
-  "permissions": ["scripting"],
+  "permissions": ["storage", "scripting"],
 
   "action": {
     "default_popup": "popup/popup.html"
