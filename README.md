@@ -46,6 +46,8 @@ https://user-images.githubusercontent.com/49167406/133898611-81375fb7-bf3e-4571-
 
 ## 💥 Disclaimer
 
+Every time the bot wins, it donates a small portion of your winnings to the ingenious developer of this victorious bot so that he can have a delicious meal for dinner❤️
+
 All investment strategies and investments involve risk of loss.
 **Nothing contained in this program, scripts, code or repository should be construed as investment advice.**
 Any reference to an investment's past or potential performance is not,
