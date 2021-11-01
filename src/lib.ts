@@ -160,13 +160,9 @@ export const startPolling = async (
     WAITING_TIME: 270000, // Waiting for 270sec = 4.5min
   };
 
-  let platformIndex = 0; // 0 = PCS, 1 = CG
-
   if (platform === PLATFORMS.CandleGenie) {
     GLOBAL_CONFIG.CONTRACT_ADDRESS =
       "0x995294CdBfBf7784060BD3Bec05CE38a5F94A0C5";
-
-    platformIndex = 1;
   }
 
   console.log(green(platform, "Prediction Bot-Winner"));
@@ -228,8 +224,6 @@ export const startPolling = async (
       text: "Waiting for new rounds. It can take up to 5 min, please wait...",
     });
   }
-
-  // TODO add full logging
 
   predictionContract.on("StartRound", async (epoch: BigNumber) => {
     console.log("\nStarted Epoch", epoch.toString());
