@@ -1,15 +1,12 @@
 import { Heading, ListItem, OrderedList } from "@chakra-ui/layout";
 import React from "react";
-import { PLATFORMS } from "src/lib";
 
-export default function Info({
-  platform = PLATFORMS.PancakeSwap,
-}: {
-  platform?: PLATFORMS;
-}) {
+export default function Info() {
   return (
     <>
-      <Heading fontSize="lg">{platform} Prediction Winner 🚀</Heading>
+      <Heading fontSize="lg">
+        PancakeSwap & Candle Genie Prediction Winner 🚀
+      </Heading>
       <OrderedList>
         <ListItem>
           Enter your private key to the input field. Your private key is
@@ -22,6 +19,7 @@ export default function Info({
           send any transaction from your wallet when the bot is working, because
           you can break bot&apos;s timer.
         </ListItem>
+        <ListItem>Bot will automatically claim all your profit.</ListItem>
         <ListItem>Good Luck!</ListItem>
       </OrderedList>
     </>

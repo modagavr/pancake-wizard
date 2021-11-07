@@ -2,7 +2,7 @@ import { Button } from "@chakra-ui/button";
 import { useBoolean } from "@chakra-ui/hooks";
 import { LockIcon, PlusSquareIcon, StarIcon } from "@chakra-ui/icons";
 import { Input, InputGroup, InputLeftAddon } from "@chakra-ui/input";
-import { Box, HStack, Text } from "@chakra-ui/layout";
+import { Box, Flex, HStack, Text } from "@chakra-ui/layout";
 import { Wallet } from "@ethersproject/wallet";
 import React, { useEffect, useState } from "react";
 import { LogMessage, PLATFORMS, sleep } from "src/lib";
@@ -19,46 +19,96 @@ export default function Main() {
 
   const [logs, setLogs] = useState<LogMessage[]>();
 
-  const [platform, setPlatform] = useState(PLATFORMS.PancakeSwap);
+  const [platforms, setPlatforms] = useState({
+    [PLATFORMS.PancakeSwap]: true,
+    [PLATFORMS.CandleGenieBTC]: true,
+    [PLATFORMS.CandleGenieBNB]: true,
+    [PLATFORMS.CandleGenieETH]: true,
+  });
 
   useEffect(() => {
     chrome.storage.sync
-      .get(["privateKey", "betAmount", "logs", "platform"])
-      .then(({ privateKey, betAmount, logs, platform }) => {
-        setAddress(new Wallet(privateKey).address);
+      .get(["privateKey", "betAmount", "logs"])
+      .then(({ privateKey, betAmount, logs }) => {
+        try {
+          setAddress(new Wallet(privateKey).address);
+        } catch {}
 
         setBetAmount(betAmount);
         setStorageBetAmount(betAmount);
 
         setLogs(logs);
-
-        if (platform) {
-          setPlatform(platform);
-        }
       });
   }, [fetchFlag]);
 
+  useEffect(() => {
+    chrome.storage.onChanged.addListener(({ privateKey, betAmount, logs }) => {
+      privateKey && setPrivateKey(privateKey.newValue);
+
+      betAmount && setStorageBetAmount(betAmount.newValue);
+
+      logs && setLogs(logs.newValue);
+    });
+  }, []);
+
   return (
     <>
-      <Button
-        mb="4"
-        size="sm"
-        onClick={() => {
-          chrome.storage.sync
-            .set({
-              platform:
-                platform === PLATFORMS.CandleGenie
-                  ? "PancakeSwap"
-                  : "CandleGenie",
-            })
-            .then(() => setFetchFlag.toggle());
-        }}
-      >
-        Switch to{" "}
-        {platform === PLATFORMS.CandleGenie ? "PancakeSwap" : "CandleGenie"}
-      </Button>
+      <Flex justify="space-between" mb="4">
+        <Button
+          size="xs"
+          colorScheme="blue"
+          variant={platforms[PLATFORMS.PancakeSwap] ? "solid" : "outline"}
+          onClick={() =>
+            setPlatforms((p) => ({
+              ...p,
+              [PLATFORMS.PancakeSwap]: !p[PLATFORMS.PancakeSwap],
+            }))
+          }
+        >
+          {PLATFORMS.PancakeSwap}
+        </Button>
+        <Button
+          size="xs"
+          colorScheme="blue"
+          variant={platforms[PLATFORMS.CandleGenieBTC] ? "solid" : "outline"}
+          onClick={() =>
+            setPlatforms((p) => ({
+              ...p,
+              [PLATFORMS.CandleGenieBTC]: !p[PLATFORMS.CandleGenieBTC],
+            }))
+          }
+        >
+          {PLATFORMS.CandleGenieBTC}
+        </Button>
+        <Button
+          size="xs"
+          colorScheme="blue"
+          variant={platforms[PLATFORMS.CandleGenieBNB] ? "solid" : "outline"}
+          onClick={() =>
+            setPlatforms((p) => ({
+              ...p,
+              [PLATFORMS.CandleGenieBNB]: !p[PLATFORMS.CandleGenieBNB],
+            }))
+          }
+        >
+          {PLATFORMS.CandleGenieBNB}
+        </Button>
+        <Button
+          size="xs"
+          colorScheme="blue"
+          variant={platforms[PLATFORMS.CandleGenieETH] ? "solid" : "outline"}
+          onClick={() =>
+            setPlatforms((p) => ({
+              ...p,
+              [PLATFORMS.CandleGenieETH]: !p[PLATFORMS.CandleGenieETH],
+            }))
+          }
+        >
+          {PLATFORMS.CandleGenieETH}
+        </Button>
+      </Flex>
 
-      <Info platform={platform} />
+      <Info />
 
       <Box mt="8" experimental_spaceY="2">
         <Config address={address} betAmount={storageBetAmount} />
@@ -108,7 +158,7 @@ export default function Main() {
 
         <Button
           onClick={async () => {
-            chrome.runtime.sendMessage({ type: "START", data: "" });
+            chrome.runtime.sendMessage({ type: "START", data: platforms });
 
             await sleep(100);
             setFetchFlag.toggle();
