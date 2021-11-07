@@ -10,5 +10,7 @@ startPolling(
   process.env.BET_AMOUNT,
   strategy,
   false,
-  PLATFORMS.CandleGenie
-);
+  PLATFORMS.CandleGenieBTC
+).catch((error) => {
+  console.error(error);
+});
