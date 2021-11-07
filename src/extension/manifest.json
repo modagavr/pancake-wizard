@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "PancakeSwap Prediction Winner",
-  "description": "This bot wins almost every 5 minute BNB-USD option on PancakeSwap",
-  "version": "0.0.0.1",
+  "description": "IMPORTANT! Open Extensions -> PancakeSwap Prediction Winner -> service worker. Otherwise the bot will sleep.",
+  "version": "0.0.0.2",
 
   "background": {
     "service_worker": "background.js"

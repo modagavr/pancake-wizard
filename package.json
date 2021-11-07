@@ -1,12 +1,16 @@
 {
   "name": "pancakeswap-prediction-winner",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "This bot wins almost every 5 minute BNB-USD option on PancakeSwap",
   "author": "Egor Gavrilov",
   "license": "MIT",
   "scripts": {
     "start": "ts-node ./src/index.ts",
-    "cg": "ts-node ./src/candle-genie.ts",
+    "pcs": "ts-node ./src/pancakeswap.ts",
+    "cg": "ts-node ./src/candlegenie-btc.ts",
+    "cg-btc": "ts-node ./src/candlegenie-btc.ts",
+    "cg-bnb": "ts-node ./src/candlegenie-bnb.ts",
+    "cg-eth": "ts-node ./src/candlegenie-eth.ts",
     "test": "jest",
     "build": "sh ./scripts/build-extension.sh",
     "watch": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'yarn build'"
@@ -17,6 +21,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "chalk": "^4.1.2",
+    "dayjs": "^1.10.7",
     "dotenv": "^10.0.0",
     "ethers": "^5.5.1",
     "framer-motion": "^4",
