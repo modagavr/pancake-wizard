@@ -6,7 +6,7 @@
 
 #### PancakeSwap is afraid of this! This bot is a casino winner! This bot wins almost every 5 minute BNB-USD option on PancakeSwap Prediction and BTC-USD option on CandleGenie. Supports all modern browsers. Secured by default.
 
-#### IMPORTANT! Open Extensions -> PancakeSwap Prediction Winner -> service worker. Otherwise the bot will sleep.
+#### IMPORTANT! Open Extensions -> Developer Mode ON -> PancakeSwap Prediction Winner -> service worker. Otherwise the bot will sleep.
 
 ## 💡 Quick Start
 
