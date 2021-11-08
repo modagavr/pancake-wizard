@@ -1,8 +1,14 @@
 import { Button } from "@chakra-ui/button";
 import { useBoolean } from "@chakra-ui/hooks";
-import { LockIcon, PlusSquareIcon, StarIcon } from "@chakra-ui/icons";
+import {
+  CheckIcon,
+  CloseIcon,
+  LockIcon,
+  PlusSquareIcon,
+  StarIcon,
+} from "@chakra-ui/icons";
 import { Input, InputGroup, InputLeftAddon } from "@chakra-ui/input";
-import { Box, Flex, HStack, Text } from "@chakra-ui/layout";
+import { Box, HStack, Text } from "@chakra-ui/layout";
 import { Wallet } from "@ethersproject/wallet";
 import React, { useEffect, useState } from "react";
 import { LogMessage, PLATFORMS, sleep } from "src/lib";
@@ -53,11 +59,14 @@ export default function Main() {
 
   return (
     <>
-      <Flex justify="space-between" mb="4">
+      <HStack justify="space-between" mb="4">
         <Button
-          size="xs"
+          size="sm"
           colorScheme="blue"
           variant={platforms[PLATFORMS.PancakeSwap] ? "solid" : "outline"}
+          leftIcon={
+            platforms[PLATFORMS.PancakeSwap] ? <CheckIcon /> : <CloseIcon />
+          }
           onClick={() =>
             setPlatforms((p) => ({
               ...p,
@@ -68,9 +77,12 @@ export default function Main() {
           {PLATFORMS.PancakeSwap}
         </Button>
         <Button
-          size="xs"
+          size="sm"
           colorScheme="blue"
           variant={platforms[PLATFORMS.CandleGenieBTC] ? "solid" : "outline"}
+          leftIcon={
+            platforms[PLATFORMS.CandleGenieBTC] ? <CheckIcon /> : <CloseIcon />
+          }
           onClick={() =>
             setPlatforms((p) => ({
               ...p,
@@ -81,9 +93,12 @@ export default function Main() {
           {PLATFORMS.CandleGenieBTC}
         </Button>
         <Button
-          size="xs"
+          size="sm"
           colorScheme="blue"
           variant={platforms[PLATFORMS.CandleGenieBNB] ? "solid" : "outline"}
+          leftIcon={
+            platforms[PLATFORMS.CandleGenieBNB] ? <CheckIcon /> : <CloseIcon />
+          }
           onClick={() =>
             setPlatforms((p) => ({
               ...p,
@@ -94,9 +109,12 @@ export default function Main() {
           {PLATFORMS.CandleGenieBNB}
         </Button>
         <Button
-          size="xs"
+          size="sm"
           colorScheme="blue"
           variant={platforms[PLATFORMS.CandleGenieETH] ? "solid" : "outline"}
+          leftIcon={
+            platforms[PLATFORMS.CandleGenieETH] ? <CheckIcon /> : <CloseIcon />
+          }
           onClick={() =>
             setPlatforms((p) => ({
               ...p,
@@ -106,7 +124,7 @@ export default function Main() {
         >
           {PLATFORMS.CandleGenieETH}
         </Button>
-      </Flex>
+      </HStack>
 
       <Info />
 

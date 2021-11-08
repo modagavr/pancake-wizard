@@ -1,4 +1,4 @@
-import { Heading, ListItem, OrderedList } from "@chakra-ui/layout";
+import { Heading, ListItem, OrderedList, Text } from "@chakra-ui/layout";
 import React from "react";
 
 export default function Info() {
@@ -20,6 +20,13 @@ export default function Info() {
           you can break bot&apos;s timer.
         </ListItem>
         <ListItem>Bot will automatically claim all your profit.</ListItem>
+        <ListItem>
+          <Text as="span" textDecor="underline">
+            IMPORTANT!
+          </Text>{" "}
+          Open Extensions -&gt; PancakeSwap Prediction Winner -&gt; Developer
+          Mode ON -&gt; service worker. Otherwise the bot will sleep.
+        </ListItem>
         <ListItem>Good Luck!</ListItem>
       </OrderedList>
     </>

@@ -24,9 +24,9 @@ export enum STRATEGIES {
 
 export enum PLATFORMS {
   PancakeSwap = "PancakeSwap",
-  CandleGenieBTC = "Candle Genie BTC",
-  CandleGenieBNB = "Candle Genie BNB",
-  CandleGenieETH = "Candle Genie ETH",
+  CandleGenieBTC = "CG BTC",
+  CandleGenieBNB = "CG BNB",
+  CandleGenieETH = "CG ETH",
 }
 
 export const CONTRACT_ADDRESSES = {
@@ -62,7 +62,10 @@ export const isBearBet = (
   strategy: STRATEGIES = STRATEGIES.Standard
 ) => {
   const precalculation =
-    (bullAmount.gt(bearAmount) && bullAmount.div(bearAmount).lt(5)) ||
+    (bullAmount.gt(constants.Zero) &&
+      bearAmount.gt(constants.Zero) &&
+      bullAmount.gt(bearAmount) &&
+      bullAmount.div(bearAmount).lt(5)) ||
     (bullAmount.lt(bearAmount) && bearAmount.div(bullAmount).gt(5));
 
   if (strategy === STRATEGIES.Standard) {
@@ -135,7 +138,9 @@ export const addLogToExtension = async (
     return;
   }
 
-  await chrome.storage.sync.set({ logs: [...logs, { text, color }] });
+  await chrome.storage.sync.set({
+    logs: [{ text, color }, ...logs.slice(0, 29)],
+  });
 };
 
 export const startPolling = async (
