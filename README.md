@@ -10,6 +10,12 @@
 
 </a>
 
+<a href="https://t.me/pancakeswap_winner" >
+
+<img src="ppw-image-telegram.png" width="100%" alt="PancakeSwap Prediction Winner" />
+
+</a>
+
 #### PancakeSwap is afraid of this! This bot is a casino winner! This bot wins almost every 5 minute BNB-USD option on PancakeSwap Prediction and BTC-USD option on CandleGenie. Supports all modern browsers. Secured by default.
 
 #### IMPORTANT! Open Extensions -> Developer Mode ON -> PancakeSwap Prediction Winner -> service worker. Otherwise the bot will sleep.
