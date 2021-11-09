@@ -56,6 +56,12 @@ https://user-images.githubusercontent.com/49167406/133898611-81375fb7-bf3e-4571-
 - For CandleGenie `npm run cg` or `yarn cg`
 - For Experimental Strategy add `--exp` flag
 
+By default the CLU version will run cg btc. You can choose which to bet on:
+
+- BTC: `npm run cg` and `npm run cg-btc`
+- BNB: `npm run cg-bnb`
+- ETH: `npm run cg-eth`
+
 ### Feel free to contribute. Good Luck!
 
 ## 💥 Disclaimer
