@@ -326,12 +326,6 @@ export const startPolling = async (
           )
         );
 
-        if (isExtension) {
-          await addLogToExtension(
-            `${platform}. Waiting for the start of round ${round.epoch.add(1)}`
-          );
-        }
-
         return;
       } else {
         try {
@@ -510,12 +504,6 @@ export const startPolling = async (
       console.log(
         blue(`${platform}. Need to wait a little more before placing a bet`)
       );
-
-      if (isExtension) {
-        await addLogToExtension(
-          `${platform}. Need to wait a little more before placing a bet`
-        );
-      }
 
       return;
     }

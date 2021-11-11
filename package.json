@@ -1,6 +1,6 @@
 {
   "name": "pancakeswap-prediction-winner",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "description": "This bot wins almost every 5 minute BNB-USD option on PancakeSwap",
   "author": "Egor Gavrilov",
   "license": "MIT",
