@@ -3,10 +3,13 @@ import { PLATFORMS, sleep, startPolling, STRATEGIES } from "src/lib";
 interface Message {
   type: string;
   data: {
-    [PLATFORMS.PancakeSwap]: boolean;
-    [PLATFORMS.CandleGenieBTC]: boolean;
-    [PLATFORMS.CandleGenieBNB]: boolean;
-    [PLATFORMS.CandleGenieETH]: boolean;
+    platforms: {
+      [PLATFORMS.PancakeSwap]: boolean;
+      [PLATFORMS.CandleGenieBTC]: boolean;
+      [PLATFORMS.CandleGenieBNB]: boolean;
+      [PLATFORMS.CandleGenieETH]: boolean;
+    };
+    strategy: STRATEGIES;
   };
 }
 
@@ -17,44 +20,44 @@ chrome.runtime.onMessage.addListener(async (message: Message) => {
       "betAmount",
     ]);
 
-    if (message.data[PLATFORMS.PancakeSwap]) {
+    if (message.data.platforms[PLATFORMS.PancakeSwap]) {
       startPolling(
         privateKey,
         betAmount,
-        STRATEGIES.Standard,
+        message.data.strategy,
         true,
         PLATFORMS.PancakeSwap
       ).catch();
       await sleep(3000);
     }
 
-    if (message.data[PLATFORMS.CandleGenieBTC]) {
+    if (message.data.platforms[PLATFORMS.CandleGenieBTC]) {
       startPolling(
         privateKey,
         betAmount,
-        STRATEGIES.Standard,
+        message.data.strategy,
         true,
         PLATFORMS.CandleGenieBTC
       ).catch();
       await sleep(3000);
     }
 
-    if (message.data[PLATFORMS.CandleGenieBNB]) {
+    if (message.data.platforms[PLATFORMS.CandleGenieBNB]) {
       startPolling(
         privateKey,
         betAmount,
-        STRATEGIES.Standard,
+        message.data.strategy,
         true,
         PLATFORMS.CandleGenieBNB
       ).catch();
       await sleep(3000);
     }
 
-    if (message.data[PLATFORMS.CandleGenieETH]) {
+    if (message.data.platforms[PLATFORMS.CandleGenieETH]) {
       startPolling(
         privateKey,
         betAmount,
-        STRATEGIES.Standard,
+        message.data.strategy,
         true,
         PLATFORMS.CandleGenieETH
       ).catch();

@@ -1,4 +1,5 @@
 import { Button } from "@chakra-ui/button";
+import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { useBoolean } from "@chakra-ui/hooks";
 import {
   CheckIcon,
@@ -9,9 +10,10 @@ import {
 } from "@chakra-ui/icons";
 import { Input, InputGroup, InputLeftAddon } from "@chakra-ui/input";
 import { Box, Flex, HStack, Link, Text } from "@chakra-ui/layout";
+import { Switch } from "@chakra-ui/switch";
 import { Wallet } from "@ethersproject/wallet";
 import React, { useEffect, useState } from "react";
-import { LogMessage, PLATFORMS, sleep } from "src/lib";
+import { LogMessage, PLATFORMS, sleep, STRATEGIES } from "src/lib";
 import Config from "./Config";
 import Info from "./Info";
 
@@ -20,6 +22,8 @@ export default function Main() {
   const [betAmount, setBetAmount] = useState("0.1");
   const [storageBetAmount, setStorageBetAmount] = useState("");
   const [address, setAddress] = useState("");
+
+  const [strategy, setStrategy] = useState(false);
 
   const [fetchFlag, setFetchFlag] = useBoolean();
 
@@ -126,6 +130,13 @@ export default function Main() {
         </Button>
       </HStack>
 
+      <FormControl display="flex" alignItems="center" mb="4">
+        <FormLabel mb="0" w="44">
+          Strategy: {strategy ? "Experimental" : "Standard"}
+        </FormLabel>
+        <Switch isChecked={strategy} onChange={() => setStrategy(!strategy)} />
+      </FormControl>
+
       <Info />
 
       <Box mt="8" experimental_spaceY="2">
@@ -176,7 +187,15 @@ export default function Main() {
 
         <Button
           onClick={async () => {
-            chrome.runtime.sendMessage({ type: "START", data: platforms });
+            chrome.runtime.sendMessage({
+              type: "START",
+              data: {
+                platforms,
+                strategy: strategy
+                  ? STRATEGIES.Experimental
+                  : STRATEGIES.Standard,
+              },
+            });
 
             await sleep(100);
             setFetchFlag.toggle();

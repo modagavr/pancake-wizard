@@ -196,6 +196,7 @@ export const startPolling = async (
 
   console.log(
     blue(`${platform}. Starting. Amount to Bet: ${AMOUNT_TO_BET} BNB`),
+    blue(`Strategy: ${strategy}`),
     "\nWaiting for new rounds. It can take up to 5 min, please wait..."
   );
 
@@ -204,6 +205,7 @@ export const startPolling = async (
       `${platform}. Starting. Amount to Bet: ${AMOUNT_TO_BET} BNB`,
       "blue"
     );
+    await addLogToExtension(`Strategy: ${strategy}`, "blue");
 
     await addLogToExtension(
       "Waiting for new rounds. It can take up to 5 min, please wait..."
