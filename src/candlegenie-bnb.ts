@@ -1,9 +1,10 @@
-import dotenv from "dotenv";
-import { parseStrategy, PLATFORMS, startPolling } from "./lib";
+import dotenv from 'dotenv'
 
-dotenv.config();
+import { parseStrategy, PLATFORMS, startPolling } from './lib'
 
-const strategy = parseStrategy(process.argv);
+dotenv.config()
+
+const strategy = parseStrategy(process.argv)
 
 startPolling(
   process.env.PRIVATE_KEY,
@@ -12,5 +13,5 @@ startPolling(
   false,
   PLATFORMS.CandleGenieBNB
 ).catch((error) => {
-  console.error(error);
-});
+  console.error(error)
+})

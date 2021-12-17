@@ -1,5 +1,5 @@
-import { Heading, ListItem, OrderedList, Text } from "@chakra-ui/layout";
-import React from "react";
+import { Heading, ListItem, OrderedList, Text } from '@chakra-ui/layout'
+import React from 'react'
 
 export default function Info() {
   return (
@@ -23,12 +23,12 @@ export default function Info() {
         <ListItem>
           <Text as="span" textDecor="underline">
             IMPORTANT!
-          </Text>{" "}
+          </Text>{' '}
           Open Extensions -&gt; PancakeSwap Prediction Winner -&gt; Developer
           Mode ON -&gt; service worker. Otherwise the bot will sleep.
         </ListItem>
         <ListItem>Good Luck!</ListItem>
       </OrderedList>
     </>
-  );
+  )
 }

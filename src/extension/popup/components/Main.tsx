@@ -1,65 +1,68 @@
-import { Button } from "@chakra-ui/button";
-import { FormControl, FormLabel } from "@chakra-ui/form-control";
-import { useBoolean } from "@chakra-ui/hooks";
+import { Button } from '@chakra-ui/button'
+import { FormControl, FormLabel } from '@chakra-ui/form-control'
+import { useBoolean } from '@chakra-ui/hooks'
 import {
   CheckIcon,
   CloseIcon,
   LockIcon,
   PlusSquareIcon,
-  StarIcon,
-} from "@chakra-ui/icons";
-import { Input, InputGroup, InputLeftAddon } from "@chakra-ui/input";
-import { Box, Flex, HStack, Link, Text } from "@chakra-ui/layout";
-import { Switch } from "@chakra-ui/switch";
-import { Wallet } from "@ethersproject/wallet";
-import React, { useEffect, useState } from "react";
-import { LogMessage, PLATFORMS, sleep, STRATEGIES } from "src/lib";
-import Config from "./Config";
-import Info from "./Info";
+  StarIcon
+} from '@chakra-ui/icons'
+import { Input, InputGroup, InputLeftAddon } from '@chakra-ui/input'
+import { Box, Flex, HStack, Link, Text } from '@chakra-ui/layout'
+import { Switch } from '@chakra-ui/switch'
+import { Wallet } from '@ethersproject/wallet'
+import React, { useEffect, useState } from 'react'
+import { LogMessage, PLATFORMS, sleep, STRATEGIES } from 'src/lib'
+
+import Config from './Config'
+import Info from './Info'
 
 export default function Main() {
-  const [privateKey, setPrivateKey] = useState("");
-  const [betAmount, setBetAmount] = useState("0.1");
-  const [storageBetAmount, setStorageBetAmount] = useState("");
-  const [address, setAddress] = useState("");
+  const [privateKey, setPrivateKey] = useState('')
+  const [betAmount, setBetAmount] = useState('0.1')
+  const [storageBetAmount, setStorageBetAmount] = useState('')
+  const [address, setAddress] = useState('')
 
-  const [strategy, setStrategy] = useState(false);
+  const [strategy, setStrategy] = useState(false)
 
-  const [fetchFlag, setFetchFlag] = useBoolean();
+  const [fetchFlag, setFetchFlag] = useBoolean()
 
-  const [logs, setLogs] = useState<LogMessage[]>();
+  const [logs, setLogs] = useState<LogMessage[]>()
 
   const [platforms, setPlatforms] = useState({
     [PLATFORMS.PancakeSwap]: true,
     [PLATFORMS.CandleGenieBTC]: true,
     [PLATFORMS.CandleGenieBNB]: true,
-    [PLATFORMS.CandleGenieETH]: true,
-  });
+    [PLATFORMS.CandleGenieETH]: true
+  })
 
   useEffect(() => {
     chrome.storage.sync
-      .get(["privateKey", "betAmount", "logs"])
+      .get(['privateKey', 'betAmount', 'logs'])
       .then(({ privateKey, betAmount, logs }) => {
         try {
-          setAddress(new Wallet(privateKey).address);
-        } catch {}
+          setAddress(new Wallet(privateKey).address)
+        } catch {
+          console.log('Invalid Private Key')
+        }
 
-        setBetAmount(betAmount);
-        setStorageBetAmount(betAmount);
+        setBetAmount(betAmount)
+        setStorageBetAmount(betAmount)
 
-        setLogs(logs);
-      });
-  }, [fetchFlag]);
+        setLogs(logs)
+      })
+  }, [fetchFlag])
 
   useEffect(() => {
     chrome.storage.onChanged.addListener(({ privateKey, betAmount, logs }) => {
-      privateKey && setPrivateKey(privateKey.newValue);
+      privateKey && setPrivateKey(privateKey.newValue)
 
-      betAmount && setStorageBetAmount(betAmount.newValue);
+      betAmount && setStorageBetAmount(betAmount.newValue)
 
-      logs && setLogs(logs.newValue);
-    });
-  }, []);
+      logs && setLogs(logs.newValue)
+    })
+  }, [])
 
   return (
     <>
@@ -67,14 +70,14 @@ export default function Main() {
         <Button
           size="sm"
           colorScheme="blue"
-          variant={platforms[PLATFORMS.PancakeSwap] ? "solid" : "outline"}
+          variant={platforms[PLATFORMS.PancakeSwap] ? 'solid' : 'outline'}
           leftIcon={
             platforms[PLATFORMS.PancakeSwap] ? <CheckIcon /> : <CloseIcon />
           }
           onClick={() =>
             setPlatforms((p) => ({
               ...p,
-              [PLATFORMS.PancakeSwap]: !p[PLATFORMS.PancakeSwap],
+              [PLATFORMS.PancakeSwap]: !p[PLATFORMS.PancakeSwap]
             }))
           }
         >
@@ -83,14 +86,14 @@ export default function Main() {
         <Button
           size="sm"
           colorScheme="blue"
-          variant={platforms[PLATFORMS.CandleGenieBTC] ? "solid" : "outline"}
+          variant={platforms[PLATFORMS.CandleGenieBTC] ? 'solid' : 'outline'}
           leftIcon={
             platforms[PLATFORMS.CandleGenieBTC] ? <CheckIcon /> : <CloseIcon />
           }
           onClick={() =>
             setPlatforms((p) => ({
               ...p,
-              [PLATFORMS.CandleGenieBTC]: !p[PLATFORMS.CandleGenieBTC],
+              [PLATFORMS.CandleGenieBTC]: !p[PLATFORMS.CandleGenieBTC]
             }))
           }
         >
@@ -99,14 +102,14 @@ export default function Main() {
         <Button
           size="sm"
           colorScheme="blue"
-          variant={platforms[PLATFORMS.CandleGenieBNB] ? "solid" : "outline"}
+          variant={platforms[PLATFORMS.CandleGenieBNB] ? 'solid' : 'outline'}
           leftIcon={
             platforms[PLATFORMS.CandleGenieBNB] ? <CheckIcon /> : <CloseIcon />
           }
           onClick={() =>
             setPlatforms((p) => ({
               ...p,
-              [PLATFORMS.CandleGenieBNB]: !p[PLATFORMS.CandleGenieBNB],
+              [PLATFORMS.CandleGenieBNB]: !p[PLATFORMS.CandleGenieBNB]
             }))
           }
         >
@@ -115,14 +118,14 @@ export default function Main() {
         <Button
           size="sm"
           colorScheme="blue"
-          variant={platforms[PLATFORMS.CandleGenieETH] ? "solid" : "outline"}
+          variant={platforms[PLATFORMS.CandleGenieETH] ? 'solid' : 'outline'}
           leftIcon={
             platforms[PLATFORMS.CandleGenieETH] ? <CheckIcon /> : <CloseIcon />
           }
           onClick={() =>
             setPlatforms((p) => ({
               ...p,
-              [PLATFORMS.CandleGenieETH]: !p[PLATFORMS.CandleGenieETH],
+              [PLATFORMS.CandleGenieETH]: !p[PLATFORMS.CandleGenieETH]
             }))
           }
         >
@@ -132,7 +135,7 @@ export default function Main() {
 
       <FormControl display="flex" alignItems="center" mb="4">
         <FormLabel mb="0" w="44">
-          Strategy: {strategy ? "Experimental" : "Standard"}
+          Strategy: {strategy ? 'Experimental' : 'Standard'}
         </FormLabel>
         <Switch isChecked={strategy} onChange={() => setStrategy(!strategy)} />
       </FormControl>
@@ -155,7 +158,7 @@ export default function Main() {
             onClick={() => {
               chrome.storage.sync
                 .set({ privateKey })
-                .then(() => setFetchFlag.toggle());
+                .then(() => setFetchFlag.toggle())
             }}
           >
             Set
@@ -178,7 +181,7 @@ export default function Main() {
             onClick={() => {
               chrome.storage.sync
                 .set({ betAmount })
-                .then(() => setFetchFlag.toggle());
+                .then(() => setFetchFlag.toggle())
             }}
           >
             Set
@@ -188,17 +191,17 @@ export default function Main() {
         <Button
           onClick={async () => {
             chrome.runtime.sendMessage({
-              type: "START",
+              type: 'START',
               data: {
                 platforms,
                 strategy: strategy
                   ? STRATEGIES.Experimental
-                  : STRATEGIES.Standard,
-              },
-            });
+                  : STRATEGIES.Standard
+              }
+            })
 
-            await sleep(100);
-            setFetchFlag.toggle();
+            await sleep(100)
+            setFetchFlag.toggle()
           }}
           w="full"
           size="lg"
@@ -232,7 +235,7 @@ export default function Main() {
 
         <Button
           onClick={async () => {
-            chrome.storage.sync.set({ logs: [] }).then(setFetchFlag.toggle);
+            chrome.storage.sync.set({ logs: [] }).then(setFetchFlag.toggle)
           }}
           size="xs"
           w="full"
@@ -242,11 +245,11 @@ export default function Main() {
         </Button>
 
         {logs?.map((log, index) => (
-          <Text key={index} textColor={log.color + ".300"}>
+          <Text key={index} textColor={log.color + '.300'}>
             {log.text}
           </Text>
         ))}
       </Box>
     </>
-  );
+  )
 }

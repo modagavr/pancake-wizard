@@ -1,9 +1,10 @@
-import dotenv from "dotenv";
-import { parseStrategy, PLATFORMS, sleep, startPolling } from "./lib";
+import dotenv from 'dotenv'
 
-dotenv.config();
+import { parseStrategy, PLATFORMS, sleep, startPolling } from './lib'
 
-const strategy = parseStrategy(process.argv);
+dotenv.config()
+
+const strategy = parseStrategy(process.argv)
 
 async function main() {
   startPolling(
@@ -12,9 +13,9 @@ async function main() {
     strategy,
     false,
     PLATFORMS.PancakeSwap
-  );
+  )
 
-  await sleep(3000);
+  await sleep(3000)
 
   startPolling(
     process.env.PRIVATE_KEY,
@@ -22,9 +23,9 @@ async function main() {
     strategy,
     false,
     PLATFORMS.CandleGenieBTC
-  );
+  )
 
-  await sleep(3000);
+  await sleep(3000)
 
   startPolling(
     process.env.PRIVATE_KEY,
@@ -32,9 +33,9 @@ async function main() {
     strategy,
     false,
     PLATFORMS.CandleGenieBNB
-  );
+  )
 
-  await sleep(3000);
+  await sleep(3000)
 
   startPolling(
     process.env.PRIVATE_KEY,
@@ -42,9 +43,9 @@ async function main() {
     strategy,
     false,
     PLATFORMS.CandleGenieETH
-  );
+  )
 }
 
 main().catch((error) => {
-  console.error(error);
-});
+  console.error(error)
+})

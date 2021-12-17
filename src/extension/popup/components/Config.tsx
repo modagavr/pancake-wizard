@@ -1,19 +1,19 @@
-import { Stat, StatGroup, StatLabel, StatNumber } from "@chakra-ui/react";
-import React from "react";
+import { Stat, StatGroup, StatLabel, StatNumber } from '@chakra-ui/react'
+import React from 'react'
 
 export default function Config({
   address,
-  betAmount,
+  betAmount
 }: {
-  address: string;
-  betAmount: string;
+  address: string
+  betAmount: string
 }) {
   return (
     <StatGroup>
       <Stat>
         <StatLabel>Address</StatLabel>
         <StatNumber>
-          {address.slice(0, 6) + "..." + address.slice(-4)}
+          {address.slice(0, 6) + '...' + address.slice(-4)}
         </StatNumber>
       </Stat>
       <Stat>
@@ -21,5 +21,5 @@ export default function Config({
         <StatNumber>{betAmount} BNB</StatNumber>
       </Stat>
     </StatGroup>
-  );
+  )
 }

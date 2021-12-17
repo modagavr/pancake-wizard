@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "PancakeSwap Prediction Winner",
   "description": "IMPORTANT! Open Extensions -> PancakeSwap Prediction Winner -> Developer Mode ON -> service worker. Otherwise the bot will sleep.",
-  "version": "0.0.0.5",
+  "version": "0.0.1.1",
 
   "background": {
     "service_worker": "background.js"
