@@ -32,6 +32,7 @@ export default function Main() {
 
   const [platforms, setPlatforms] = useState({
     [PLATFORMS.PancakeSwap]: true,
+    [PLATFORMS.DogeBets]: true,
     [PLATFORMS.CandleGenieBTC]: true,
     [PLATFORMS.CandleGenieBNB]: true,
     [PLATFORMS.CandleGenieETH]: true
@@ -82,6 +83,22 @@ export default function Main() {
           }
         >
           {PLATFORMS.PancakeSwap}
+        </Button>
+        <Button
+          size="sm"
+          colorScheme="blue"
+          variant={platforms[PLATFORMS.DogeBets] ? 'solid' : 'outline'}
+          leftIcon={
+            platforms[PLATFORMS.DogeBets] ? <CheckIcon /> : <CloseIcon />
+          }
+          onClick={() =>
+            setPlatforms((p) => ({
+              ...p,
+              [PLATFORMS.DogeBets]: !p[PLATFORMS.DogeBets]
+            }))
+          }
+        >
+          {PLATFORMS.DogeBets}
         </Button>
         <Button
           size="sm"

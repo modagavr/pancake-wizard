@@ -22,6 +22,16 @@ async function main() {
     process.env.BET_AMOUNT,
     strategy,
     false,
+    PLATFORMS.DogeBets
+  )
+
+  await sleep(3000)
+
+  startPolling(
+    process.env.PRIVATE_KEY,
+    process.env.BET_AMOUNT,
+    strategy,
+    false,
     PLATFORMS.CandleGenieBTC
   )
 

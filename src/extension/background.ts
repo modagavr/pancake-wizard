@@ -5,6 +5,7 @@ interface Message {
   data: {
     platforms: {
       [PLATFORMS.PancakeSwap]: boolean
+      [PLATFORMS.DogeBets]: boolean
       [PLATFORMS.CandleGenieBTC]: boolean
       [PLATFORMS.CandleGenieBNB]: boolean
       [PLATFORMS.CandleGenieETH]: boolean
@@ -27,6 +28,17 @@ chrome.runtime.onMessage.addListener(async (message: Message) => {
         message.data.strategy,
         true,
         PLATFORMS.PancakeSwap
+      ).catch()
+      await sleep(3000)
+    }
+
+    if (message.data.platforms[PLATFORMS.DogeBets]) {
+      startPolling(
+        privateKey,
+        betAmount,
+        message.data.strategy,
+        true,
+        PLATFORMS.DogeBets
       ).catch()
       await sleep(3000)
     }

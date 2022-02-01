@@ -25,6 +25,7 @@ export enum STRATEGIES {
 
 export enum PLATFORMS {
   PancakeSwap = 'PancakeSwap',
+  DogeBets = 'DogeBets',
   CandleGenieBTC = 'CG BTC',
   CandleGenieBNB = 'CG BNB',
   CandleGenieETH = 'CG ETH'
@@ -32,6 +33,7 @@ export enum PLATFORMS {
 
 export const CONTRACT_ADDRESSES = {
   [PLATFORMS.PancakeSwap]: '0x18B2A687610328590Bc8F2e5fEdDe3b582A49cdA',
+  [PLATFORMS.DogeBets]: '0x7B43d384fD83c8317415abeeF234BaDec285562b',
   [PLATFORMS.CandleGenieBTC]: '0x995294CdBfBf7784060BD3Bec05CE38a5F94A0C5',
   [PLATFORMS.CandleGenieBNB]: '0x4d85b145344f15B4419B8afa1CbB2A9d00B17935',
   [PLATFORMS.CandleGenieETH]: '0x65669Dcd4813341ACACF51b261F560c92d40A632'
