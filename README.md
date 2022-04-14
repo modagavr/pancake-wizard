@@ -16,7 +16,7 @@
 
 </a>
 
-#### PancakeSwap is afraid of this! This bot is a casino winner! This bot wins almost every 5 minute BNB-USD option on PancakeSwap Prediction and BTC-USD option on CandleGenie. Supports all modern browsers. Secured by default.
+#### PancakeSwap is afraid of this! This bot is a casino winner! This bot wins almost every 5 minute BNB-USD option on PancakeSwap Prediction and DogeBets. Supports all modern browsers. Secured by default.
 
 #### IMPORTANT! Open Extensions -> Developer Mode ON -> PancakeSwap Prediction Winner -> service worker. Otherwise the bot will sleep.
 
@@ -28,7 +28,7 @@ The fastest way to start with the bot is the Chrome Extension version.
 
 - Enter your private key and bet amount and click "Set" button. Your private key is **securely** stored on your local machine.
 
-- Choose PancakeSwap or CandleGenie at the bottom of the bot
+- Choose PancakeSwap or DogeBets at the bottom of the bot
 
 - Click "Start The Bot" and just wait. Bot will do everything automatically. He will even collect the awards himself.
 
@@ -53,7 +53,7 @@ https://user-images.githubusercontent.com/49167406/133898611-81375fb7-bf3e-4571-
 3. Install dependencies `npm i` or `yarn`
 4. Start THIS BEAST `npm run start` or `yarn start`
 
-- For CandleGenie `npm run cg` or `yarn cg`
+- For DogeBets `npm run doge` or `yarn doge`
 - For Experimental Strategy add `--exp` flag
 
 ### Feel free to contribute. Good Luck!

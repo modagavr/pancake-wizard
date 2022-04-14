@@ -24,36 +24,6 @@ async function main() {
     false,
     PLATFORMS.DogeBets
   )
-
-  await sleep(3000)
-
-  startPolling(
-    process.env.PRIVATE_KEY,
-    process.env.BET_AMOUNT,
-    strategy,
-    false,
-    PLATFORMS.CandleGenieBTC
-  )
-
-  await sleep(3000)
-
-  startPolling(
-    process.env.PRIVATE_KEY,
-    process.env.BET_AMOUNT,
-    strategy,
-    false,
-    PLATFORMS.CandleGenieBNB
-  )
-
-  await sleep(3000)
-
-  startPolling(
-    process.env.PRIVATE_KEY,
-    process.env.BET_AMOUNT,
-    strategy,
-    false,
-    PLATFORMS.CandleGenieETH
-  )
 }
 
 main().catch((error) => {

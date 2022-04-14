@@ -13,8 +13,8 @@ import { Box, Flex, HStack, Link, Text } from '@chakra-ui/layout'
 import { Switch } from '@chakra-ui/switch'
 import { Wallet } from '@ethersproject/wallet'
 import React, { useEffect, useState } from 'react'
-import { LogMessage, PLATFORMS, sleep, STRATEGIES } from 'src/lib'
 
+import { LogMessage, PLATFORMS, sleep, STRATEGIES } from '../../../lib'
 import Config from './Config'
 import Info from './Info'
 
@@ -32,10 +32,7 @@ export default function Main() {
 
   const [platforms, setPlatforms] = useState({
     [PLATFORMS.PancakeSwap]: true,
-    [PLATFORMS.DogeBets]: true,
-    [PLATFORMS.CandleGenieBTC]: true,
-    [PLATFORMS.CandleGenieBNB]: true,
-    [PLATFORMS.CandleGenieETH]: true
+    [PLATFORMS.DogeBets]: true
   })
 
   useEffect(() => {
@@ -99,54 +96,6 @@ export default function Main() {
           }
         >
           {PLATFORMS.DogeBets}
-        </Button>
-        <Button
-          size="sm"
-          colorScheme="blue"
-          variant={platforms[PLATFORMS.CandleGenieBTC] ? 'solid' : 'outline'}
-          leftIcon={
-            platforms[PLATFORMS.CandleGenieBTC] ? <CheckIcon /> : <CloseIcon />
-          }
-          onClick={() =>
-            setPlatforms((p) => ({
-              ...p,
-              [PLATFORMS.CandleGenieBTC]: !p[PLATFORMS.CandleGenieBTC]
-            }))
-          }
-        >
-          {PLATFORMS.CandleGenieBTC}
-        </Button>
-        <Button
-          size="sm"
-          colorScheme="blue"
-          variant={platforms[PLATFORMS.CandleGenieBNB] ? 'solid' : 'outline'}
-          leftIcon={
-            platforms[PLATFORMS.CandleGenieBNB] ? <CheckIcon /> : <CloseIcon />
-          }
-          onClick={() =>
-            setPlatforms((p) => ({
-              ...p,
-              [PLATFORMS.CandleGenieBNB]: !p[PLATFORMS.CandleGenieBNB]
-            }))
-          }
-        >
-          {PLATFORMS.CandleGenieBNB}
-        </Button>
-        <Button
-          size="sm"
-          colorScheme="blue"
-          variant={platforms[PLATFORMS.CandleGenieETH] ? 'solid' : 'outline'}
-          leftIcon={
-            platforms[PLATFORMS.CandleGenieETH] ? <CheckIcon /> : <CloseIcon />
-          }
-          onClick={() =>
-            setPlatforms((p) => ({
-              ...p,
-              [PLATFORMS.CandleGenieETH]: !p[PLATFORMS.CandleGenieETH]
-            }))
-          }
-        >
-          {PLATFORMS.CandleGenieETH}
         </Button>
       </HStack>
 

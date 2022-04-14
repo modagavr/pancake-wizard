@@ -1,4 +1,4 @@
-import { PLATFORMS, sleep, startPolling, STRATEGIES } from 'src/lib'
+import { PLATFORMS, sleep, startPolling, STRATEGIES } from '../lib'
 
 interface Message {
   type: string
@@ -6,9 +6,6 @@ interface Message {
     platforms: {
       [PLATFORMS.PancakeSwap]: boolean
       [PLATFORMS.DogeBets]: boolean
-      [PLATFORMS.CandleGenieBTC]: boolean
-      [PLATFORMS.CandleGenieBNB]: boolean
-      [PLATFORMS.CandleGenieETH]: boolean
     }
     strategy: STRATEGIES
   }
@@ -29,6 +26,7 @@ chrome.runtime.onMessage.addListener(async (message: Message) => {
         true,
         PLATFORMS.PancakeSwap
       ).catch()
+
       await sleep(3000)
     }
 
@@ -41,38 +39,6 @@ chrome.runtime.onMessage.addListener(async (message: Message) => {
         PLATFORMS.DogeBets
       ).catch()
       await sleep(3000)
-    }
-
-    if (message.data.platforms[PLATFORMS.CandleGenieBTC]) {
-      startPolling(
-        privateKey,
-        betAmount,
-        message.data.strategy,
-        true,
-        PLATFORMS.CandleGenieBTC
-      ).catch()
-      await sleep(3000)
-    }
-
-    if (message.data.platforms[PLATFORMS.CandleGenieBNB]) {
-      startPolling(
-        privateKey,
-        betAmount,
-        message.data.strategy,
-        true,
-        PLATFORMS.CandleGenieBNB
-      ).catch()
-      await sleep(3000)
-    }
-
-    if (message.data.platforms[PLATFORMS.CandleGenieETH]) {
-      startPolling(
-        privateKey,
-        betAmount,
-        message.data.strategy,
-        true,
-        PLATFORMS.CandleGenieETH
-      ).catch()
     }
   }
 })

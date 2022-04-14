@@ -2,12 +2,12 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Provider } from "@ethersproject/providers";
 import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
 import type {
-  PancakePredictionV2,
-  PancakePredictionV2Interface,
-} from "../PancakePredictionV2";
+  PancakePrediction,
+  PancakePredictionInterface,
+} from "../PancakePrediction";
 
 const _abi = [
   {
@@ -1127,15 +1127,15 @@ const _abi = [
   },
 ];
 
-export class PancakePredictionV2__factory {
+export class PancakePrediction__factory {
   static readonly abi = _abi;
-  static createInterface(): PancakePredictionV2Interface {
-    return new utils.Interface(_abi) as PancakePredictionV2Interface;
+  static createInterface(): PancakePredictionInterface {
+    return new utils.Interface(_abi) as PancakePredictionInterface;
   }
   static connect(
     address: string,
     signerOrProvider: Signer | Provider
-  ): PancakePredictionV2 {
-    return new Contract(address, _abi, signerOrProvider) as PancakePredictionV2;
+  ): PancakePrediction {
+    return new Contract(address, _abi, signerOrProvider) as PancakePrediction;
   }
 }
