@@ -5,7 +5,7 @@ export default function Info() {
   return (
     <>
       <Heading fontSize="lg">
-        PancakeSwap | DogeBets | Candle Genie Prediction Winner 🚀
+        PancakeSwap & DogeBets Prediction Winner 🚀
       </Heading>
       <OrderedList>
         <ListItem>
