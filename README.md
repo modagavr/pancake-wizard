@@ -85,7 +85,7 @@ sudo xattr -r -d com.apple.quarantine /Applications/Pancake\ Wizard.app
 
 Pancake Wizard is always looking for contributions, whether it's through bug reports, code, or new translations.
 
-* If you find a bug in Pancake Wizard, or would like to suggest a new feature or enhancement, it'd be nice if you could [search your problem first](https://github.com/modagavr/pancake-wizard/issues); while i don't mind duplicates, keeping issues unique helps me save time and consolidates effort. If you can't find your issue, feel free to [file a new one](https://github.com/modagavr/pancake-wizard/issues/new).
+* If you find a bug in Pancake Wizard, or would like to suggest a new feature or enhancement, it'd be nice if you could [search your problem first](https://github.com/modagavr/pancake-wizard/issues); while i don't mind duplicates, keeping issues unique helps me save time and consolidates effort. If you can't find your issue, feel free to [file a new one](https://github.com/modagavr/pancake-wizard/issues/new/choose).
 
 * Standard Plan includes plain 0.003 BNB fee **only from profits**
 
