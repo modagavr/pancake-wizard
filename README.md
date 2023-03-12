@@ -10,7 +10,7 @@
 
 </a>
 
-<a href="https://t.me/pancakeswap_winner" >
+<a href="https://t.me/PancakeWizard" >
 
 <img src="ppw-image-telegram.png" width="100%" alt="PancakeSwap Prediction Winner" />
 
