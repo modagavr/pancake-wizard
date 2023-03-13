@@ -25,9 +25,7 @@
 
 <img src="./images/pancake-wizard-screenshot-1.png" />
 
-## Download
-
-### [Download the bot here (Windows / Linux / macOS)](https://github.com/modagavr/pancake-wizard/releases/latest).
+## [Download (Windows / Linux / macOS)](https://github.com/modagavr/pancake-wizard/releases/latest).
 
 Note (macOS). If it shows that the app is broken do this:
 1. Install `Pancake Wizard` the normal way by moving it to `Applications` folder
@@ -80,6 +78,6 @@ Pancake Wizard is always looking for contributions, whether it's through bug rep
 
 * Standard Plan includes plain 0.003 BNB fee **only from profits**
 
-## Download the bot here [Windows / Linux / macOS](https://github.com/modagavr/pancake-wizard/releases/latest).
+## [Download (Windows / Linux / macOS)](https://github.com/modagavr/pancake-wizard/releases/latest).
 
 ## Telegram Group [@PancakeWizard](https://t.me/PancakeWizard)
