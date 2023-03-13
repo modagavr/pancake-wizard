@@ -1,6 +1,6 @@
-<center>
+<div align="center">
   <img height="256" src="./src-tauri/icons/Square310x310Logo.png" />
-</center>
+</div>
 
 <h1 align="center">Pancake Wizard</h1>
 
@@ -44,7 +44,7 @@ sudo xattr -r -d com.apple.quarantine /Applications/Pancake\ Wizard.app
 
 <img src="./images/pancake-wizard-screenshot-2.png" />
 
-<center>
+<div align="center">
 
 | Oscillators                        | Moving Averages                     |
 |------------------------------------|-------------------------------------|
@@ -64,7 +64,7 @@ sudo xattr -r -d com.apple.quarantine /Applications/Pancake\ Wizard.app
 |                                    | Volume Weighted Moving Average (20) |
 |                                    | Hull Moving Average (9)             |
 
-</center>
+</div>
 
 ## How to Export Private Key from MetaMask
 - Open your account
