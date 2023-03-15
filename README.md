@@ -4,7 +4,7 @@
 
 <h1 align="center">Pancake Wizard</h1>
 
-<p align="center">Bot for Pancake Prediction – 26 technical indicators. Make smarter predictions with Pancake Wizard – trust math, not emotions!</p>
+<p align="center">Bot for PancakeSwap Prediction – 26 technical indicators. Make smarter predictions with Pancake Wizard – trust math, not emotions!</p>
 
 <p align=center>
   <a href="https://github.com/modagavr/pancake-wizard/releases/latest">Download</a> ·
